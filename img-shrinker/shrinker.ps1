@@ -1,5 +1,14 @@
 #!/usr/bin/env pwsh
 
+# Add-Type -AssemblyName System.Windows.Forms
+
+# $FileBrowser = New-Object System.Windows.Forms.FolderBrowserDialog -Property @{
+#     InitialDirectory = [Environment]::GetFolderPath('Desktop') 
+#     Filter           = 'Do'
+# }
+
+# $null = $FileBrowser.ShowDialog()
+
 if (!(Test-Path $(Join-Path "." "/output"))) {
     New-Item -ItemType Directory -Path "./output"
 }
