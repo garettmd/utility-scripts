@@ -9,6 +9,17 @@
 
 # $null = $FileBrowser.ShowDialog()
 
+function Install-ImageMagick {
+    $url = 'https://imagemagick.org/download/binaries/ImageMagick-7.0.10-34-Q16-HDRI-x64-dll.exe'
+    $outPath = Join-Path(Get-Location.Path "imagemagick_installer.exe")
+    Invoke-WebRequest -Uri $url -OutFile $outPath
+    Start-Process -FilePath $outPath
+}
+
+if (!(Get-Command "convert" -ErrorAction SilentlyContinue)) {
+    Install-
+}
+
 if (!(Test-Path $(Join-Path "." "/output"))) {
     New-Item -ItemType Directory -Path "./output"
 }
